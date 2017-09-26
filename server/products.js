@@ -6,7 +6,6 @@ class Products {
   static async all(req, res) {
     let query = 'select * from products';
     let data = await db.execute(query);
-    console.log('data', data.rows);
     res.status(200).send(data.rows);
   }
 

@@ -1,16 +1,22 @@
-const { Client } = require('pg');
-const { DATABASE_PATH } = require('./environments/');
-const client = new Client(DATABASE_PATH);
+const { Client, Pool } = require('pg');
+const { DATABASE_CONFIG } = require('./environments/');
+const pool = new Pool(DATABASE_CONFIG);
 
 class db {
   static execute(query, input) {
-    return new Promise(async (resolve, reject) => {
-      await client.connect();
-      const res = await client.query(query, input || []);
-      await client.end();
-      resolve(res);
-    });
+    try {
+      const res = await pool.query(query, input || []);
+      return Promise.resolve(res);
+    } catch (err) {
+      return Promise.reject(err);
+    }
+  }
+  static onError(err, client) {
+    console.error('Unexpected error on idle client', err);
+    process.exit(-1);
   }
 }
+
+pool.on('error', db.onError);
 
 module.exports = db;
