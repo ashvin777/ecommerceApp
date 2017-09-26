@@ -1,3 +1,9 @@
 module.exports = {
-  DATABASE_PATH: 'postgres://admin:admin@example.com:5432/ecommerce'
+  DATABASE_CONFIG: {
+    user: 'admin',
+    host: '192.168.0.106',
+    database: 'ecommerce',
+    password: 'admin',
+    port: 5432
+  }
 }
