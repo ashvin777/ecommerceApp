@@ -1,4 +1,4 @@
-const { Client, Pool } = require('pg');
+const { Pool } = require('pg');
 const { DATABASE_CONFIG } = require('./environments/');
 const pool = new Pool(DATABASE_CONFIG);
 
