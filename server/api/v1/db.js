@@ -1,9 +1,9 @@
 const { Pool } = require('pg');
-const { DATABASE_CONFIG } = require('./environments/');
+const { DATABASE_CONFIG } = require('../../environments/');
 const pool = new Pool(DATABASE_CONFIG);
 
 class db {
-  static execute(query, input) {
+  static async execute(query, input) {
     try {
       const res = await pool.query(query, input || []);
       return Promise.resolve(res);

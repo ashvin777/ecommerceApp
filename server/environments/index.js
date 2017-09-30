@@ -1,2 +1,2 @@
-let { ENVIRONMENT } = require('./config');
+let ENVIRONMENT = require('./config');
 module.exports = require('./' + ENVIRONMENT);

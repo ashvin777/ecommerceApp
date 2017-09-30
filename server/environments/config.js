@@ -1,3 +1,1 @@
-module.exports = {
-  ENVIRONMENT: 'dev' //prod
-}
+module.exports = 'dev';
