@@ -9,6 +9,6 @@ router
   .get('/get', users.get.bind(this))
   .post('/update', users.update.bind(users))
   .put('/add', users.add.bind(users))
-  .delete('/delete', users.delete.bind(users));
+  .post('/delete', users.delete.bind(users));
 
 module.exports = router;

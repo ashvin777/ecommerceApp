@@ -8,7 +8,30 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
     .state('main.home', {
       url: '/home',
       component: 'homePageComponent'
-    });
+    })
+    //PRODUCTS
+    .state('main.home.products', {
+      url: '/products',
+      component: 'productsPageComponent'
+    })
+    .state('main.home.product-add', {
+      url: '/product-add',
+      component: 'productAddPageComponent'
+    })
 
-  $urlRouterProvider.otherwise('/main/home');
+    //CATEGORIES
+    .state('main.home.categories', {
+      url: '/categories',
+      component: 'categoriesPageComponent'
+    })
+    .state('main.home.category-add', {
+      url: '/category-add',
+      component: 'categoryAddPageComponent',
+      params: {
+        item: ''
+      }
+    })
+    ;
+
+  $urlRouterProvider.otherwise('/main/home/categories');
 }

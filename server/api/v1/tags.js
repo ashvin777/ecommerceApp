@@ -9,6 +9,6 @@ router
   .get('/get', tags.get.bind(this))
   .post('/update', tags.update.bind(tags))
   .put('/add', tags.add.bind(tags))
-  .delete('/delete', tags.delete.bind(tags));
+  .post('/delete', tags.delete.bind(tags));
 
 module.exports = router;

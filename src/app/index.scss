@@ -3,8 +3,7 @@
  *  The list of variables are listed here bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss
  */
 
-$icon-font-path: "../../bootstrap-sass/assets/fonts/bootstrap/";
-$icon-font-name:"glyphicons-halflings-regular";
+$icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
 /**
  *  Do not remove the comments below. It's the markers used by wiredep to inject
@@ -13,14 +12,18 @@ $icon-font-name:"glyphicons-halflings-regular";
 
 // bower:scss
 // endbower
-@font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url('@{icon-font-path}@{icon-font-name}.eot');
-  src: url('@{icon-font-path}@{icon-font-name}.eot?#iefix') format('embedded-opentype'),
-  url('@{icon-font-path}@{icon-font-name}.woff2') format('woff2'),
-  url('@{icon-font-path}@{icon-font-name}.woff') format('woff'),
-  url('@{icon-font-path}@{icon-font-name}.ttf') format('truetype'),
-  url('@{icon-font-path}@{icon-font-name}.svg#@{icon-font-svg-id}') format('svg');
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.no-gutters>[class*="col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.page-home .page-content {
+  padding: 20px;
 }
 
 

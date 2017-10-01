@@ -5,12 +5,14 @@ import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
 import './components';
 import './pages';
+import './services';
 
 angular.module('ecommerceapp', [
   'ui.router',
   'ui.bootstrap',
   'ecommerceapp.components',
-  'ecommerceapp.pages'
+  'ecommerceapp.pages',
+  'ecommerceapp.services'
 ])
   .constant('moment', moment)
   .config(config)

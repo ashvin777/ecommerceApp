@@ -1,0 +1,54 @@
+<div class="subpage page-home-products">
+
+  <header>
+    <span class="icon lnr lnr-gift"></span>
+    <span class="title">Products</span>
+    <div class="btns">
+      <button class="btn btn-blue">Export</button>
+      <button class="btn btn-blue">Import</button>
+      <button class="btn btn-blue" ui-sref="main.home.product-add">Add Product</button>
+    </div>
+  </header>
+  <div class="sub-header">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-blue" type="button">Go!</button>
+      </span>
+    </div>
+  </div>
+  <table class=" table table-striped ">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Size</th>
+        <th>Color</th>
+        <th>SKU</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Category</th>
+        <th>Dimensions</th>
+        <th></th>
+      </tr>
+      </tdead>
+      <tbody>
+        <tr ng-repeat="product in productsPageCtrl.products ">
+          <td>{{product.name}}</td>
+          <td>{{product.description}}</td>
+          <td>{{product.price}}</td>
+          <td>{{product.size}}</td>
+          <td>{{product.color}}</td>
+          <td>{{product.sku}}</td>
+          <td>{{product.make}}</td>
+          <td>{{product.model}}</td>
+          <td>{{product.category}}</td>
+          <td>{{product.dimensions}}</td>
+          <td ng-click="productsPageCtrl.delete(product.id)">
+            <span class="glyphicon glyphicon-remove"></span>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</div>

@@ -9,6 +9,6 @@ router
   .get('/get', orders.get.bind(this))
   .post('/update', orders.update.bind(orders))
   .put('/add', orders.add.bind(orders))
-  .delete('/delete', orders.delete.bind(orders));
+  .post('/delete', orders.delete.bind(orders));
 
 module.exports = router;

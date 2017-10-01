@@ -1,0 +1,50 @@
+<div class="subpage page-home-product-add">
+  <header ui-sref="main.home.products">
+    <span class="icon lnr lnr-arrow-left"></span>
+    <span class="title">Products</span>
+  </header>
+  <form name="productForm" ng-submit="productAddPageCtrl.add(productForm.$valid, product)" novalidate>
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" ng-model="product.name" required class="form-control" placeholder="Product Name">
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea rows=5 ng-model="product.description" class="form-control" placeholder="Product Description"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Price</label>
+      <input type="number" ng-model="product.price" required class="form-control" placeholder="Product Price">
+    </div>
+    <div class="form-group">
+      <label>Size</label>
+      <input type="number" ng-model="product.size" class="form-control" placeholder="Product Size">
+    </div>
+    <div class="form-group">
+      <label>Color</label>
+      <input type="text" ng-model="product.color" class="form-control" placeholder="Product Color">
+    </div>
+    <div class="form-group">
+      <label>SKU</label>
+      <input type="number" ng-model="product.sku" class="form-control" placeholder="Product SKU">
+    </div>
+    <div class="form-group">
+      <label>Make</label>
+      <input type="text" ng-model="product.make" class="form-control" placeholder="Product Make">
+    </div>
+    <div class="form-group">
+      <label>Model</label>
+      <input type="text" ng-model="product.model" class="form-control" placeholder="Product Model">
+    </div>
+    <div class="form-group">
+      <label>Category</label>
+      <input type="number" ng-model="product.category_id" class="form-control" placeholder="Product Category">
+    </div>
+    <div class="form-group">
+      <label>Dimensions</label>
+      <input type="text" ng-model="product.dimensions" class="form-control" placeholder="Product Dimensions">
+    </div>
+    <button type="button" ui-sref="main.home.products" class="btn btn-gray">Cancel</button>
+    <button type="submit" class="btn btn-primary">Add Product</button>
+  </form>
+</div>

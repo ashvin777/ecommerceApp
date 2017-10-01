@@ -9,6 +9,6 @@ router
   .get('/get', categories.get.bind(this))
   .post('/update', categories.update.bind(categories))
   .put('/add', categories.add.bind(categories))
-  .delete('/delete', categories.delete.bind(categories));
+  .post('/delete', categories.delete.bind(categories));
 
 module.exports = router;
