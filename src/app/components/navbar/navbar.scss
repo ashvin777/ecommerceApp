@@ -1,0 +1,26 @@
+@import "../../styles/consts";
+body {
+  .navbar {
+    background: #{$color-blue};
+    .navbar-header {
+      .navbar-brand {
+        color: white;
+        height: 70px;
+        line-height: 40px;
+        font-size: 20px;
+        letter-spacing: 1.5px;
+        font-weight: lighter;
+        span.domain {
+          border: 1px solid white;
+          background:#{$color-blue-dark};
+          border-radius: 9px;
+          padding: 7px 10px;
+        }
+        span.subdomain {
+          font-weight: lighter;
+          margin: 0 15px;
+        }
+      }
+    }
+  }
+}

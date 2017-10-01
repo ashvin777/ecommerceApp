@@ -1,0 +1,13 @@
+html,
+body,
+body>[ui-view] {
+  height: 100vh;
+}
+
+.main-container {
+  height: 100%;
+  .main-container-ui-view {
+    height: 100%;
+    padding-top: 70px;
+  }
+}
