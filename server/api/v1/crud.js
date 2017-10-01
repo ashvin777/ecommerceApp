@@ -26,6 +26,7 @@ class Crud {
           ${this.tableName}(${columnNames})
           values(${columnValues})`;
 
+        query = query.replace(/'null'/g, null);
         await db.execute(query, values);
         res.status(200).send('ok');
       } else {
@@ -44,10 +45,6 @@ class Crud {
     let params = req.body;
     try {
       if (params) {
-        // let columnValues = Object.keys(params).map((field, key) => "$" + (key + 1)).join(",");
-        // let columnNames = Object.keys(params).join(',');
-        // let values = Object.keys(params).map((field) => params[field]);
-
         let fields = Object.keys(params).map((key) => {
           return key + "='" + params[key] + "'";
         });
@@ -55,8 +52,7 @@ class Crud {
         let query = `update ${this.tableName}
           set ${fields}
           where id = ${params.id}`;
-
-        console.log(query);
+        query = query.replace(/'null'/g, null);
 
         await db.execute(query);
         res.status(200).send('ok');

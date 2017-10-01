@@ -31,6 +31,19 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
         item: ''
       }
     })
+
+    //SUB CATEGORIES
+    .state('main.home.subcategories', {
+      url: '/subcategories',
+      component: 'subCategoriesPageComponent'
+    })
+    .state('main.home.subcategory-add', {
+      url: '/subcategory-add',
+      component: 'subCategoryAddPageComponent',
+      params: {
+        item: ''
+      }
+    })
     ;
 
   $urlRouterProvider.otherwise('/main/home/categories');

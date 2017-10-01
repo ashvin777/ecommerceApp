@@ -6,7 +6,7 @@ let categories = new crud("categories");
 
 router
   .get('/', categories.all.bind(categories))
-  .get('/get', categories.get.bind(this))
+  .get('/get', categories.get.bind(categories))
   .post('/update', categories.update.bind(categories))
   .put('/add', categories.add.bind(categories))
   .post('/delete', categories.delete.bind(categories));

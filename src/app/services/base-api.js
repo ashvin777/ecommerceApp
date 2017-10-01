@@ -19,6 +19,7 @@ class BaseApi {
   add(data) {
     let path = this.ENDPOINT + this.BASE_URL + '/add';
     let self = this;
+
     return new Promise((resolve, reject) => {
       self._http.put(path, data)
         .then((response) => {

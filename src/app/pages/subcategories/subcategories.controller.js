@@ -1,9 +1,9 @@
 import EVENTS from '../../index.consts';
 
-class CategoriesPageCtrl {
-  constructor($scope, $rootScope, $state, categoriesApi, exportExcel) {
+class SubCategoriesPageCtrl {
+  constructor($scope, $rootScope, $state, subCategoriesApi, exportExcel) {
     'ngInject';
-    this._categoriesApi = categoriesApi;
+    this._subCategoriesApi = subCategoriesApi;
     this._exportExcel = exportExcel;
     this._state = $state;
     this._scope = $scope;
@@ -19,7 +19,7 @@ class CategoriesPageCtrl {
   }
 
   getAll() {
-    this._categoriesApi.getAll()
+    this._subCategoriesApi.getAll()
       .then((res) => {
         this.list = res.data;
         this._scope.$digest();
@@ -29,11 +29,11 @@ class CategoriesPageCtrl {
   }
 
   add() {
-    this._state.go('main.home.category-add');
+    this._state.go('main.home.subcategory-add');
   }
 
   delete(id) {
-    this._categoriesApi.delete(id)
+    this._subCategoriesApi.delete(id)
       .then(() => {
         this._rs.$broadcast(EVENTS.CATEGORY_RELOAD);
       }, (err) => {
@@ -42,13 +42,13 @@ class CategoriesPageCtrl {
   }
 
   update(item) {
-    this._state.go('main.home.category-add', {
+    this._state.go('main.home.subcategory-add', {
       item: item
     });
   }
 
   export(tableId) {
-    this._exportExcel.export(tableId, 'Categories');
+    this._exportExcel.export(tableId, 'Sub Categories');
   }
 }
-export default CategoriesPageCtrl;
+export default SubCategoriesPageCtrl;
