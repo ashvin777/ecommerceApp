@@ -1,12 +1,13 @@
 import EVENTS from '../../index.consts';
 
 class ProductsPageCtrl {
-  constructor($scope, $rootScope, productsApi) {
+  constructor($scope, $rootScope, $state, productsApi) {
     'ngInject';
     this._productsApi = productsApi;
     this._scope = $scope;
+    this._state = $state;
     this._rs = $rootScope;
-    this.products = [];
+    this.list = [];
 
     this.init();
   }
@@ -19,7 +20,7 @@ class ProductsPageCtrl {
   getProducts() {
     this._productsApi.getAll()
       .then((res) => {
-        this.products = res.data;
+        this.list = res.data;
         this._scope.$digest();
       }, (err) => {
         alert(err);
@@ -33,6 +34,12 @@ class ProductsPageCtrl {
       }, (err) => {
         alert(err);
       });
+  }
+
+  update(item) {
+    this._state.go('main.home.product-add', {
+      item: item
+    });
   }
 }
 export default ProductsPageCtrl;

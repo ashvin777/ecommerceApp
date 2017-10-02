@@ -3,46 +3,54 @@
     <span class="icon lnr lnr-arrow-left"></span>
     <span class="title">Products</span>
   </header>
-  <form name="productForm" ng-submit="productAddPageCtrl.add(productForm.$valid, product)" novalidate>
+  <form name="productForm" ng-submit="productAddPageCtrl.add(productForm.$valid, productAddPageCtrl.item)" novalidate>
     <div class="form-group">
       <label>Name</label>
-      <input type="text" ng-model="product.name" required class="form-control" placeholder="Product Name">
+      <input type="text" ng-model="productAddPageCtrl.item.name" required class="form-control" placeholder="Product Name">
     </div>
     <div class="form-group">
       <label>Description</label>
-      <textarea rows=5 ng-model="product.description" class="form-control" placeholder="Product Description"></textarea>
+      <textarea rows=5 ng-model="productAddPageCtrl.item.description" class="form-control" placeholder="Product Description"></textarea>
     </div>
     <div class="form-group">
       <label>Price</label>
-      <input type="number" ng-model="product.price" required class="form-control" placeholder="Product Price">
+      <input type="number" ng-model="productAddPageCtrl.item.price" required class="form-control" placeholder="Product Price">
     </div>
     <div class="form-group">
       <label>Size</label>
-      <input type="number" ng-model="product.size" class="form-control" placeholder="Product Size">
+      <input type="number" ng-model="productAddPageCtrl.item.size" class="form-control" placeholder="Product Size">
     </div>
     <div class="form-group">
       <label>Color</label>
-      <input type="text" ng-model="product.color" class="form-control" placeholder="Product Color">
+      <input type="text" ng-model="productAddPageCtrl.item.color" class="form-control" placeholder="Product Color">
     </div>
     <div class="form-group">
       <label>SKU</label>
-      <input type="number" ng-model="product.sku" class="form-control" placeholder="Product SKU">
+      <input type="number" ng-model="productAddPageCtrl.item.sku" class="form-control" placeholder="Product SKU">
     </div>
     <div class="form-group">
       <label>Make</label>
-      <input type="text" ng-model="product.make" class="form-control" placeholder="Product Make">
+      <input type="text" ng-model="productAddPageCtrl.item.make" class="form-control" placeholder="Product Make">
     </div>
     <div class="form-group">
       <label>Model</label>
-      <input type="text" ng-model="product.model" class="form-control" placeholder="Product Model">
+      <input type="text" ng-model="productAddPageCtrl.item.model" class="form-control" placeholder="Product Model">
     </div>
     <div class="form-group">
       <label>Category</label>
-      <input type="number" ng-model="product.category_id" class="form-control" placeholder="Product Category">
+      <select class="form-control" ng-model="productAddPageCtrl.item.category_id">
+          <option ng-repeat="category in productAddPageCtrl.categories" ng-value="{{category.id}}">{{category.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Sub Category</label>
+      <select class="form-control" ng-model="productAddPageCtrl.item.subcategory_id">
+          <option ng-if="subcategory.category_id == productAddPageCtrl.item.category_id" ng-repeat="subcategory in productAddPageCtrl.subcategories" ng-value="{{subcategory.id}}">{{subcategory.name}}</option>
+      </select>
     </div>
     <div class="form-group">
       <label>Dimensions</label>
-      <input type="text" ng-model="product.dimensions" class="form-control" placeholder="Product Dimensions">
+      <input type="text" ng-model="productAddPageCtrl.item.dimensions" class="form-control" placeholder="Product Dimensions">
     </div>
     <button type="button" ui-sref="main.home.products" class="btn btn-gray">Cancel</button>
     <button type="submit" class="btn btn-primary">Add Product</button>

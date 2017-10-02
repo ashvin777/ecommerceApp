@@ -11,7 +11,7 @@
   </header>
   <div class="sub-header">
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search for...">
+      <input type="text" ng-model="query " class="form-control" placeholder="Search for...">
       <span class="input-group-btn">
         <button class="btn btn-blue" type="button">Go!</button>
       </span>
@@ -34,19 +34,20 @@
       </tr>
       </tdead>
       <tbody>
-        <tr ng-repeat="product in productsPageCtrl.products ">
-          <td>{{product.name}}</td>
-          <td>{{product.description}}</td>
-          <td>{{product.price}}</td>
-          <td>{{product.size}}</td>
-          <td>{{product.color}}</td>
-          <td>{{product.sku}}</td>
-          <td>{{product.make}}</td>
-          <td>{{product.model}}</td>
-          <td>{{product.category}}</td>
-          <td>{{product.dimensions}}</td>
-          <td ng-click="productsPageCtrl.delete(product.id)">
-            <span class="glyphicon glyphicon-remove"></span>
+        <tr ng-repeat="item in productsPageCtrl.list  | filter:query ">
+          <td>{{item.name}}</td>
+          <td>{{item.description}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.size}}</td>
+          <td>{{item.color}}</td>
+          <td>{{item.sku}}</td>
+          <td>{{item.make}}</td>
+          <td>{{item.model}}</td>
+          <td>{{item.category}}</td>
+          <td>{{item.dimensions}}</td>
+          <td>
+            <span class="lnr lnr-pencil" ng-click="productsPageCtrl.update(item) "></span>
+            <span ng-click="productsPageCtrl.delete(item.id)" class="glyphicon glyphicon-remove"></span>
           </td>
         </tr>
       </tbody>

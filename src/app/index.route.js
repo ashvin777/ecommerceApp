@@ -16,7 +16,10 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
     })
     .state('main.home.product-add', {
       url: '/product-add',
-      component: 'productAddPageComponent'
+      component: 'productAddPageComponent',
+      params: {
+        item: ''
+      }
     })
 
     //CATEGORIES
