@@ -12,7 +12,7 @@
     "quickthumb": "0.0.12"
   },
   "scripts": {
-    "start": "gulp serve && node server",
+    "start": "concurrently --kill-others \"gulp serve\" \"node server/\"",
     "test": "gulp test"
   },
   "devDependencies": {
