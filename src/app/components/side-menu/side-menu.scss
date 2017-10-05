@@ -1,0 +1,39 @@
+@import "../../styles/consts";
+.side-menu {
+  height: 100%;
+  background: #{$color-blue};
+  .side-menu-header {
+    padding: 15px;
+    color: white;
+    font-family: 'Pacifico', cursive;
+    font-size: 25px;
+    border-bottom: 1px solid #{$color-blue-dark};
+  }
+  .list-group {
+    padding: 5px 10px;
+    cursor: pointer;
+    .list-group-item {
+      border: 0;
+      font-size: 14px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      background: transparent;
+      color: white;
+      border-radius: 5px;
+      margin: 2px 0;
+      padding-left: 10px;
+      span {
+        padding-left: 10px;
+      }
+      .glyphicon {
+        padding-top: 7px;
+        float: left;
+        font-size: 12px;
+      }
+      &.selected,
+      &:hover {
+        background: #{$color-blue-dark};
+      }
+    }
+  }
+}

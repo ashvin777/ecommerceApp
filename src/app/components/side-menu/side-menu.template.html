@@ -1,0 +1,48 @@
+<div class="side-menu">
+  <div class="side-menu-header">
+    <span class="lnr lnr-license"></span>
+    <div class="title">Administrator</div>
+  </div>
+  <ul class="list-group">
+    <li ng-click="sideMenuCtrl.openState('main.home.categories')" class="list-group-item" ng-class="{ 'selected' : sideMenuCtrl.stateName.match('home.categories')}">
+      <span class="lnr lnr-list"></span>
+      <span>Categories</span>
+    </li>
+    <li ng-click="sideMenuCtrl.openState('main.home.subcategories')" class="list-group-item" ng-class="{ 'selected' : sideMenuCtrl.stateName.match('subcategories')}">
+      <span class="lnr lnr-list"></span>
+      <span>Sub Categories</span>
+    </li>
+    <li ng-click="sideMenuCtrl.openState('main.home.products')" class="list-group-item" ng-class="{ 'selected' : sideMenuCtrl.stateName.match('products')}">
+      <span class="lnr lnr-gift"></span>
+      <span>Products</span>
+    </li>
+    <li ng-click="sideMenuCtrl.openState('main.home.orders')" class="list-group-item" ng-class="{ 'selected' : sideMenuCtrl.stateName.match('orders')}">
+      <span class="lnr lnr-inbox"></span>
+      <span>Orders</span>
+    </li>
+    <li ng-click="sideMenuCtrl.openState('main.home.users')" class="list-group-item" ng-class="{ 'selected' : sideMenuCtrl.stateName.match('users')}">
+      <span class="lnr lnr-users"></span>
+      <span>Users</span>
+    </li>
+    <li ng-click="sideMenuCtrl.openState('main.home.tags')" class="list-group-item" ng-class="{ 'selected' : sideMenuCtrl.stateName.match('tags')}">
+      <span class="lnr lnr-tag"></span>
+      <span>Tags</span>
+    </li>
+    <li ng-click="sideMenuCtrl.openState('main.home.reviews')" class="list-group-item" ng-class="{ 'selected' : sideMenuCtrl.stateName.match('reviews')}">
+      <span class="lnr lnr-star"></span>
+      <span>Reviews</span>
+    </li>
+    <li ng-click="sideMenuCtrl.openState('main.home.images')" class="list-group-item" ng-class="{ 'selected' : sideMenuCtrl.stateName.match('images')}">
+      <span class="lnr lnr-picture"></span>
+      <span>Images</span>
+    </li>
+    <li ng-click="sideMenuCtrl.openState('main.home.analytics')" class="list-group-item" ng-class="{ 'selected' : sideMenuCtrl.stateName.match('analytics')}">
+      <span class="lnr lnr-chart-bars"></span>
+      <span>Analytics</span>
+    </li>
+    <li ng-click="sideMenuCtrl.openState('main.home.logout')" class="list-group-item">
+      <span class="lnr lnr-exit"></span>
+      <span>Logout</span>
+    </li>
+  </ul>
+</div>

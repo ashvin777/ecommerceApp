@@ -1,0 +1,25 @@
+<div class="subpage page-home-add">
+  <header ui-sref="main.home.categories">
+    <span class="icon lnr lnr-arrow-left"></span>
+    <span class="title">Sub Categories</span>
+  </header>
+  <form name="CategoriesForm" ng-submit="subCategoryAddPageCtrl.add(CategoriesForm.$valid, subCategoryAddPageCtrl.item)" novalidate>
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" ng-model="subCategoryAddPageCtrl.item.name" required autofocus class="form-control" placeholder="Name">
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea rows=5 ng-model="subCategoryAddPageCtrl.item.description" class="form-control" placeholder="Description"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Category</label>
+      <select class="form-control" ng-model="subCategoryAddPageCtrl.item.category_id">
+          <option ng-repeat="category in subCategoryAddPageCtrl.categories" ng-value="{{category.id}}">{{category.name}}</option>
+      </select>
+    </div>
+    <button type="button" ui-sref="main.home.subcategories" class="btn btn-gray">Cancel</button>
+    <button type="submit" class="btn btn-primary">Save</button>
+
+  </form>
+</div>

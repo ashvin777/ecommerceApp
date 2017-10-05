@@ -1,0 +1,38 @@
+<div class="subpage">
+  <header>
+    <span class="icon lnr lnr-list"></span>
+    <span class="title">Sub Categories</span>
+    <div class="btns">
+      <button class="btn btn-blue" ng-click="subCategoriesPageCtrl.export('table')">Export</button>
+      <button class="btn btn-blue">Import</button>
+      <button class="btn btn-blue" ng-click="subCategoriesPageCtrl.add()">Add</button>
+    </div>
+  </header>
+  <div class="sub-header">
+    <div class="input-group ">
+      <input type="text " ng-model="query " class="form-control " placeholder="Search for... ">
+      <span class="input-group-btn ">
+        <button class="btn btn-blue " type="button ">Go!</button>
+      </span>
+    </div>
+  </div>
+  <table id="table" class=" table table-striped ">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th width="30"></th>
+      </tr>
+      </tdead>
+      <tbody>
+        <tr ng-repeat="item in subCategoriesPageCtrl.list | filter:query ">
+          <td>{{item.name}}</td>
+          <td>{{item.description}}</td>
+          <td>
+            <span class="lnr lnr-pencil " ng-click="subCategoriesPageCtrl.update(item) "></span>
+            <span class="lnr lnr-cross " ng-click="subCategoriesPageCtrl.delete(item.id) "></span>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</div>

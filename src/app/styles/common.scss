@@ -1,0 +1,62 @@
+@import "consts";
+html,
+body,
+body>[ui-view] {
+  height: 100vh;
+}
+
+.btn-blue {
+  color: white;
+  background: #{$color-blue};
+  &:hover {
+    color: white;
+    background: #{$color-blue-dark};
+  }
+}
+
+.main-container {
+  height: 100%;
+  .main-container-ui-view {
+    height: 100%; // padding-top: 70px;
+  }
+  .page {
+    .subpage {
+      header {
+        padding-bottom: 16px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #{$color-light-gray};
+        .icon {
+          float: left;
+          padding-top: 4px;
+          font-size: 20px;
+          padding-left: 10px;
+        }
+        .title {
+          font-weight: bold;
+          font-size: 20px;
+          padding-left: 10px;
+        }
+        .btns {
+          float: right;
+        }
+      }
+      .sub-header {}
+    }
+  }
+}
+
+.page-home .page-content {
+  padding: 20px;
+}
+
+.subpage {
+  .form-files {
+    .drop-box {
+      width: 400px;
+      padding: 20px 10px;
+      text-align: center;
+      font-size: 20px;
+      border: 2px dashed #{$color-blue};
+    }
+  }
+}
