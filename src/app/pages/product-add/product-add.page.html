@@ -3,56 +3,103 @@
     <span class="icon lnr lnr-arrow-left"></span>
     <span class="title">Products</span>
   </header>
-  <form name="productForm" ng-submit="productAddPageCtrl.add(productForm.$valid, productAddPageCtrl.item)" novalidate>
+  <form class="form-horizontal" name="productForm" ng-submit="productAddPageCtrl.add(productForm.$valid, productAddPageCtrl.item)"
+    novalidate>
     <div class="form-group">
-      <label>Name</label>
-      <input type="text" ng-model="productAddPageCtrl.item.name" required class="form-control" placeholder="Product Name">
+      <label class="col-sm-2 control-label">Name</label>
+      <div class="col-sm-10">
+        <input type="text" ng-model="productAddPageCtrl.item.name" required class="form-control" placeholder="Name">
+      </div>
     </div>
     <div class="form-group">
-      <label>Description</label>
-      <textarea rows=5 ng-model="productAddPageCtrl.item.description" class="form-control" placeholder="Product Description"></textarea>
+      <label class="col-sm-2 control-label">Description</label>
+      <div class="col-sm-10">
+        <textarea rows=5 ng-model="productAddPageCtrl.item.description" class="form-control" placeholder="Description"></textarea>
+      </div>
     </div>
     <div class="form-group">
-      <label>Price</label>
-      <input type="number" ng-model="productAddPageCtrl.item.price" required class="form-control" placeholder="Product Price">
+      <label class="col-sm-2 control-label">Price</label>
+      <div class="col-sm-10">
+        <input type="number" ng-model="productAddPageCtrl.item.price" required class="form-control" placeholder="Price">
+      </div>
     </div>
     <div class="form-group">
-      <label>Size</label>
-      <input type="number" ng-model="productAddPageCtrl.item.size" class="form-control" placeholder="Product Size">
+      <label class="col-sm-2 control-label">Size</label>
+      <div class="col-sm-10">
+        <input type="number" ng-model="productAddPageCtrl.item.size" class="form-control" placeholder="Size">
+      </div>
     </div>
     <div class="form-group">
-      <label>Color</label>
-      <input type="text" ng-model="productAddPageCtrl.item.color" class="form-control" placeholder="Product Color">
+      <label class="col-sm-2 control-label">Color</label>
+      <div class="col-sm-10">
+        <input type="text" ng-model="productAddPageCtrl.item.color" class="form-control" placeholder="Color">
+      </div>
     </div>
     <div class="form-group">
-      <label>SKU</label>
-      <input type="number" ng-model="productAddPageCtrl.item.sku" class="form-control" placeholder="Product SKU">
+      <label class="col-sm-2 control-label">SKU</label>
+      <div class="col-sm-10">
+        <input type="number" ng-model="productAddPageCtrl.item.sku" class="form-control" placeholder="SKU">
+      </div>
     </div>
     <div class="form-group">
-      <label>Make</label>
-      <input type="text" ng-model="productAddPageCtrl.item.make" class="form-control" placeholder="Product Make">
+      <label class="col-sm-2 control-label">Make</label>
+      <div class="col-sm-10">
+        <input type="text" ng-model="productAddPageCtrl.item.make" class="form-control" placeholder="Make">
+      </div>
     </div>
     <div class="form-group">
-      <label>Model</label>
-      <input type="text" ng-model="productAddPageCtrl.item.model" class="form-control" placeholder="Product Model">
+      <label class="col-sm-2 control-label">Model</label>
+      <div class="col-sm-10">
+        <input type="text" ng-model="productAddPageCtrl.item.model" class="form-control" placeholder="Model">
+      </div>
     </div>
     <div class="form-group">
-      <label>Category</label>
-      <select class="form-control" ng-model="productAddPageCtrl.item.category_id">
+      <label class="col-sm-2 control-label">Category</label>
+      <div class="col-sm-10">
+        <select class="form-control" ng-model="productAddPageCtrl.item.category_id">
           <option ng-repeat="category in productAddPageCtrl.categories" ng-value="{{category.id}}">{{category.name}}</option>
       </select>
+      </div>
     </div>
     <div class="form-group">
-      <label>Sub Category</label>
-      <select class="form-control" ng-model="productAddPageCtrl.item.subcategory_id">
+      <label class="col-sm-2 control-label">Sub Category</label>
+      <div class="col-sm-10">
+        <select class="form-control" ng-model="productAddPageCtrl.item.subcategory_id">
           <option ng-if="subcategory.category_id == productAddPageCtrl.item.category_id" ng-repeat="subcategory in productAddPageCtrl.subcategories" ng-value="{{subcategory.id}}">{{subcategory.name}}</option>
       </select>
+      </div>
     </div>
     <div class="form-group">
-      <label>Dimensions</label>
-      <input type="text" ng-model="productAddPageCtrl.item.dimensions" class="form-control" placeholder="Product Dimensions">
+      <label class="col-sm-2 control-label">Dimensions</label>
+      <div class="col-sm-10">
+        <input type="text" ng-model="productAddPageCtrl.item.dimensions" class="form-control" placeholder="Dimensions">
+      </div>
     </div>
-    <button type="button" ui-sref="main.home.products" class="btn btn-gray">Cancel</button>
-    <button type="submit" class="btn btn-primary">Add Product</button>
+    <div class="form-group form-files">
+      <label class="col-sm-2 control-label">Image Dropbox</label>
+      <div class="col-sm-10">
+        <div ngf-drop ngf-select ng-model="productAddPageCtrl.fileImagesUploads" class="drop-box" ngf-drag-over-class="'dragover'"
+          ngf-multiple="true" ngf-allow-dir="true" accept="image/*" ngf-pattern="'image/*'">Drop images here</div>
+        <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+      </div>
+    </div>
+    <div class="form-group form-files">
+      <label class="col-sm-2 control-label">Images</label>
+      <div class="col-sm-10">
+        <div ng-repeat="image in productAddPageCtrl.fileImagesUploads">{{image.name}}</div>
+      </div>
+    </div>
+    <div class="form-group form-images">
+      <div class="col-sm-offset-2 col-sm-10">
+        <img width="150px" ng-repeat="image in productAddPageCtrl.images" src="http://localhost:8080/static/{{image.path}}" />
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="button" ui-sref="main.home.products" class="btn btn-gray">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+
   </form>
 </div>

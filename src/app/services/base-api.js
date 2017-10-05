@@ -16,6 +16,19 @@ class BaseApi {
     });
   }
 
+  getByField(field, value) {
+    let path = `${this.ENDPOINT}${this.BASE_URL}/get/${field}/${value}`;
+    let self = this;
+    return new Promise((resolve, reject) => {
+      self._http.get(path)
+        .then((response) => {
+          resolve(response)
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
   add(data) {
     let path = this.ENDPOINT + this.BASE_URL + '/add';
     let self = this;
@@ -53,6 +66,22 @@ class BaseApi {
         }, (err) => {
           reject(err);
         });
+    });
+  }
+
+  upload(id, images) {
+    let path = this.ENDPOINT + this.BASE_URL + '/upload';
+    let self = this;
+
+    return new Promise((resolve, reject) => {
+      self._upload.upload({
+        url: path,
+        data: { file: images, id: id }
+      }).then((response) => {
+        resolve(response)
+      }, (err) => {
+        reject(err);
+      });
     });
   }
 
