@@ -9,20 +9,26 @@ class Crud {
   }
   async all(req, res) {
     try {
+      await db.execute('begin;');
       let query = `select * from ${this.tableName}`;
       let data = await db.execute(query);
       res.status(200).send(data.rows);
+      await db.execute('commit;');
     } catch (e) {
+      await db.execute('rollback;');
       res.status(501).send("error");
     }
   }
 
   async get(req, res) {
     try {
+      await db.execute('begin;');
       let query = `select * from ${this.tableName} where id=${req.params.id}`;
       let data = await db.execute(query);
       res.status(200).send(data.rows);
+      await db.execute('commit;');
     } catch (e) {
+      await db.execute('rollback;');
       res.status(501).send("error");
     }
   }
@@ -30,13 +36,16 @@ class Crud {
   async getByField(req, res) {
     try {
       if (req.params.field && req.params.value) {
+        await db.execute('begin;');
         let query = `select * from ${this.tableName} where ${req.params.field}=${req.params.value}`;
         let data = await db.execute(query);
         res.status(200).send(data.rows);
+        await db.execute('commit;');
       } else {
         res.status(501).send("error");
       }
     } catch (e) {
+      await db.execute('rollback;');
       res.status(501).send("error");
     }
   }
@@ -48,6 +57,7 @@ class Crud {
         let columnValues = Object.keys(params).map((field, key) => "$" + (key + 1)).join(",");
         let columnNames = Object.keys(params).join(',');
         let values = Object.keys(params).map((field) => params[field]);
+        await db.execute('begin;');
         let query = `insert into 
           ${this.tableName}(${columnNames})
           values(${columnValues})
@@ -56,10 +66,12 @@ class Crud {
         query = query.replace(/'null'/g, null);
         let data = await db.execute(query, values);
         res.status(200).send(data.rows);
+        await db.execute('commit;');
       } else {
         res.status(501).send('error');
       }
     } catch (e) {
+      await db.execute('rollback;');
       if (env == 'dev') {
         res.status(501).send(JSON.stringify(e));
       } else {
@@ -75,7 +87,7 @@ class Crud {
         let fields = Object.keys(params).map((key) => {
           return key + "='" + params[key] + "'";
         });
-
+        await db.execute('begin;');
         let query = `update ${this.tableName}
           set ${fields}
           where id = ${params.id}
@@ -84,10 +96,12 @@ class Crud {
 
         let data = await db.execute(query);
         res.status(200).send(data.rows);
+        await db.execute('commit;');
       } else {
         res.status(501).send('error');
       }
     } catch (e) {
+      await db.execute('rollback;');
       if (env == 'dev') {
         res.status(501).send(JSON.stringify(e));
       } else {
@@ -98,10 +112,13 @@ class Crud {
 
   async delete(req, res) {
     try {
+      await db.execute('begin;');
       let query = `delete from ${this.tableName} where id = '${req.body.id}'`;
       await db.execute(query);
       res.status(200).send('ok');
+      await db.execute('commit;');
     } catch (e) {
+      await db.execute('rollback;');
       res.status(501).send("error");
     }
   }
@@ -110,7 +127,7 @@ class Crud {
     try {
       let id = req.body.id;
       let index = 0;
-
+      await db.execute('begin;');
       let deleteQuery = `delete from images where ${this.idName} = ${id}`
       await db.execute(deleteQuery);
 
@@ -133,7 +150,9 @@ class Crud {
         index++;
       }
       res.status(200).send("ok");
+      await db.execute('commit;');
     } catch (e) {
+      await db.execute('rollback;');
       res.status(501).send("error");
     }
   }

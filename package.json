@@ -9,10 +9,11 @@
     "gm": "^1.23.0",
     "multer": "^1.3.0",
     "pg": "^7.3.0",
+    "pg-promise": "^6.10.3",
     "quickthumb": "0.0.12"
   },
   "scripts": {
-    "start": "concurrently --kill-others \"gulp serve\" \"node server/\"",
+    "start": "gulp serve && node server",
     "test": "gulp test"
   },
   "devDependencies": {
