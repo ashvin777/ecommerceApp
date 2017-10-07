@@ -13,7 +13,7 @@
     "quickthumb": "0.0.12"
   },
   "scripts": {
-    "start": "gulp serve && node server",
+    "start": "gulp serve",
     "test": "gulp test"
   },
   "devDependencies": {
